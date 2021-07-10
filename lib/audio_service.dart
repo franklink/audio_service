@@ -958,7 +958,11 @@ class AudioService {
     await _channel.invokeMethod('playMediaItem', mediaItem.toJson());
   }
 
-  //static Future<void> playFromSearch(String query, Bundle extras) async {}
+  static Future<void> playFromSearch(
+      String query, Map<String, Object?> extras) async {
+    await _channel.invokeMethod('playFromSearch', query);
+  }
+
   //static Future<void> playFromUri(Uri uri, Bundle extras) async {}
 
   /// Sends a request to your background audio task to skip to a particular
