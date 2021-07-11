@@ -703,7 +703,7 @@ public class AudioService extends MediaBrowserServiceCompat {
             if (listener == null) return;
             listener.onRewind();
         }
-
+        
         //Required for Android Auto Approval
         @Override
         public void onPlayFromSearch(String query, Map<?,?> extras) {
