@@ -1326,6 +1326,8 @@ class AudioServiceBackground {
       case 'onPlayMediaItem':
         return await _task
             .onPlayMediaItem(MediaItem.fromJson(call.arguments[0]));
+      case 'onPlayFromSearch':
+        return await _task.onPlayFromSearch(call.arguments[0]);
       case 'onAddQueueItem':
         return await _task
             .onAddQueueItem(MediaItem.fromJson(call.arguments[0]));
@@ -1756,6 +1758,11 @@ abstract class BackgroundAudioTask {
   /// this method to play audio and also broadcast the appropriate state change
   /// via [AudioServiceBackground.setState].
   Future<void> onPlayFromMediaId(String mediaId) async {}
+
+  /// Called when voice commands are issued from Google Assistant/Android Auto.
+  /// If the query is null or empty the playback should begin from whereever
+  /// according to the documentation
+  Future<void> onPlayFromSearch(String query) async {}
 
   /// Called when the Flutter UI has requested to play a given media item via a
   /// call to [AudioService.playMediaItem]. You should implement this method to
