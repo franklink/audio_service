@@ -495,7 +495,11 @@ public class AudioServicePlugin implements FlutterPlugin, ActivityAware {
                     backgroundHandler().invokeMethod(result, "onPlayMediaItem", call.arguments);
                     break;
                 }
-                //playFromSearch
+                case "playFromSearch": {
+                    //Map<?, ?> rawMediaItem = (Map<?,?>)call.arguments;
+                    backgrounHandler().invokeMethod(result, "onPlayFromSearch", call.arguments);
+                    break;
+                }
                 //playFromUri
                 case "skipToQueueItem": {
                     String mediaId = (String)call.arguments;
