@@ -706,7 +706,7 @@ public class AudioService extends MediaBrowserServiceCompat {
         
         //Required for Android Auto Approval
         @Override
-        public void onPlayFromSearch(String query, Map<?,?> extras) {
+        public void onPlayFromSearch(String query, Bundle extras) {
             if(listener == null) return;
             listener.onPlayFromSearch(query, extras);
         }
@@ -764,16 +764,18 @@ public class AudioService extends MediaBrowserServiceCompat {
 
         void onPrepare();
 
-        void onPrepareFromMediaId(String mediaId);
+        //void onPrepareFromMediaId(String mediaId);
 
         //void onPrepareFromSearch(String query);
+
         //void onPrepareFromUri(String uri);
+
         void onPlay();
 
         void onPlayFromMediaId(String mediaId);
 
         //Required for Android Auto approval
-        void onPlayFromSearch(String query, Map<?,?> extras);
+        void onPlayFromSearch(String query, Bundle extras);
 
         //void onPlayFromUri(String uri, Map<?,?> extras);
         void onSkipToQueueItem(long id);
