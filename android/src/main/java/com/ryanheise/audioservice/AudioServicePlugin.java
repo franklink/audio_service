@@ -497,7 +497,7 @@ public class AudioServicePlugin implements FlutterPlugin, ActivityAware {
                 }
                 case "playFromSearch": {
                     HashMap<String, Object> arguments = (HashMap<String, Object>)call.arguments;
-                    backgroundHandler().invokeMethod(result, "onPlayFromSearch", arguments);
+                    backgroundHandler().invokeMethod(result, "onPlayFromSearch", arguments.get("query"));
                     break;
                 }
                 //playFromUri
@@ -685,6 +685,11 @@ public class AudioServicePlugin implements FlutterPlugin, ActivityAware {
         public void onPlayFromMediaId(String mediaId) {
             invokeMethod("onPlayFromMediaId", mediaId);
         }
+        
+        @Override
+        public void onPlayFromSearch(String query, Bundle extras) {
+            invokeMethod("onPlayFromSearch", query);
+        };
 
         @Override
         public void onPlayMediaItem(MediaMetadataCompat metadata) {
