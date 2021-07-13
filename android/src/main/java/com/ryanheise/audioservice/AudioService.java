@@ -764,7 +764,7 @@ public class AudioService extends MediaBrowserServiceCompat {
 
         void onPrepare();
 
-        //void onPrepareFromMediaId(String mediaId);
+        void onPrepareFromMediaId(String mediaId);
 
         //void onPrepareFromSearch(String query);
 
